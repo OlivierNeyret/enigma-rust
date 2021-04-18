@@ -1,4 +1,5 @@
 pub use self::enigma::Enigma;
+pub use self::plugboard::PlugBoard;
 pub use self::reflector::Reflector;
 pub use self::reflector::FixedReflectorType;
 

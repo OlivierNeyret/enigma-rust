@@ -1,10 +1,12 @@
+use std::collections::HashMap;
+
 pub enum FixedReflectorType {
     B,
     C,
 }
 
 pub struct Reflector {
-    wiring: [char; 26],
+    wiring: HashMap<char, char>,
 }
 
 // Here it is a fixed reflector
@@ -13,16 +15,21 @@ impl Reflector {
         Reflector {
             wiring: match reflector_type {
                 FixedReflectorType::B => {
-                    ['Y','R','U','H','Q','S','L','D','P','X','N','G','O','K','M','I','E','B','F','Z','C','W','V','J','A','T']
+                    [('A','Y'), ('B','R'), ('C','U'), ('D','H'), ('E','Q'), ('F','S'), ('G','L') ,('H','D'), ('I','P'), ('J','X'), ('K','N'), ('L','G'), ('M','O'), ('N','K'), ('O','M'), ('P','I'), ('Q','E'), ('R','B'), ('S','F'), ('T','Z'), ('U','C'), ('V','W'), ('W','V'), ('X','J'), ('Y','A'), ('Z','T')]
+                    .iter().cloned().collect()
                 }
                 FixedReflectorType::C => {
-                    ['F','V','P','J','I','A','O','Y','E','D','R','Z','X','W','G','C','T','K','U','Q','S','B','N','M','H','L']
+                    [('A','F'), ('B','V'), ('C','P'), ('D','J'), ('E','I'), ('F','A'), ('G','O') ,('H','Y'), ('I','E'), ('J','D'), ('K','R'), ('L','Z'), ('M','X'), ('N','W'), ('O','G'), ('P','C'), ('Q','T'), ('R','K'), ('S','U'), ('T','Q'), ('U','S'), ('V','B'), ('W','N'), ('X','M'), ('Y','H'), ('Z','L')]
+                    .iter().cloned().collect()
                 }
             },
         }
     }
 
-    pub fn forward(&self, pos: usize) -> u32 {
-        self.wiring[pos] as u32
+    pub fn forward(&self, char_in: char) -> Option<char> {
+        match self.wiring.get(&char_in) {
+            Some(&v) => Some(v),
+            None => None,
+        }
     }
 }
