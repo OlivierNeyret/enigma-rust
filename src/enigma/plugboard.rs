@@ -26,10 +26,10 @@ impl PlugBoard {
         }
     }
 
-    pub fn forward(&self, char_in: char) -> Result<char, &str> {
+    pub fn forward(&self, char_in: char) -> Result<char, String> {
         match self.wiring.get(&char_in) {
             Some(&v) => Ok(v),
-            None => Err("PlugBoard error : key not found."), // TODO: find a way to add char_in to error message
+            None => Err(String::from("PlugBoard error : key not found.")), // TODO: find a way to add char_in to error message
         }
     }
 }
