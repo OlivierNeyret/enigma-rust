@@ -1,3 +1,5 @@
+![CI status](https://github.com/OlivierNeyret/enigma-rust/actions/workflows/rust.yml/badge.svg)
+
 # enigma-rust
 
 This is an implementation of an Enigma machine, in Rust.
