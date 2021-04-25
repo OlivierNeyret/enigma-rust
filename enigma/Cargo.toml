@@ -1,0 +1,7 @@
+[package]
+name = "enigma"
+version = "0.1.0"
+
+[lib]
+name = "enigma"
+path = "src/enigma.rs"

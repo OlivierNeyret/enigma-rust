@@ -5,13 +5,26 @@ mod rotor;
 use std::collections::HashMap;
 
 use plugboard::PlugBoard;
-use reflector::*;
-use rotor::*;
+use reflector::Reflector;
+use rotor::Rotor;
+
+pub use rotor::RotorName;
+pub use reflector::FixedReflectorType;
 
 pub struct RotorConfig {
     name: RotorName,
     position: usize,
     ring_setting: usize,
+}
+
+impl RotorConfig {
+    pub fn new(name: RotorName, position: usize, ring_setting: usize) -> RotorConfig {
+        RotorConfig {
+            name: name,
+            position: position,
+            ring_setting: ring_setting
+        }
+    }
 }
 
 pub struct Enigma {
