@@ -6,7 +6,13 @@ edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[workspace]
+[lib]
+name = "enigma"
+path = "src/enigma.rs"
+
+[[bin]]
+name = "enigma-bin"
+path = "src/bin.rs"
+
 
 [dependencies]
-enigma = {path = "enigma"}

@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use enigma;
+use enigma::*;
 
 #[test]
 fn encrypt_basic() {
@@ -9,7 +9,7 @@ fn encrypt_basic() {
     let rotor_middle = RotorConfig::new(RotorName::II, 0, 0);
     let rotor_center = RotorConfig::new(RotorName::III, 0, 0);
 
-    let enigma = Enigma::new(FixedReflectorType::B, &rotor_left, &rotor_middle, &rotor_center, &plug_board_wiring);
+    let mut enigma = Enigma::new(FixedReflectorType::B, &rotor_left, &rotor_middle, &rotor_center, &plug_board_wiring);
 
     let plain_text = String::from("ABCDEFGHIJKLMNOPQRSTUVWXYZAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBABCDEFGHIJKLMNOPQRSTUVWXYZ");
     let expected = String::from("BJELRQZVJWARXSNBXORSTNCFMEYHCXTGYJFLINHNXSHIUNTHEORXOPLOVFEKAGADSPNPCMHRVZCYECDAZIHVYGPITMSRZKGGHLSRBLHL");
