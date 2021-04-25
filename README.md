@@ -8,3 +8,8 @@ Greatly inspired from [https://github.com/mikepound/enigma](https://github.com/m
 ## TODO
 - improve error handling, especially error type in Plugboard and Reflector
 - add unit tests!
+- change bin.rs to read from stdin
+
+## Tips
+
+[To understand code structure](https://stackoverflow.com/questions/26946646/rust-package-with-both-a-library-and-a-binary)
