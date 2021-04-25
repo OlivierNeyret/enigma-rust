@@ -1,8 +1,18 @@
+mod plugboard;
+mod reflector;
+mod rotor;
+
 use std::collections::HashMap;
 
-use super::plugboard::PlugBoard;
-use super::reflector::*;
-use super::rotor::*;
+use plugboard::PlugBoard;
+use reflector::*;
+use rotor::*;
+
+pub struct RotorConfig {
+    name: RotorName,
+    position: usize,
+    ring_setting: usize,
+}
 
 pub struct Enigma {
     left_rotor: Rotor,
@@ -15,11 +25,11 @@ pub struct Enigma {
 }
 
 impl Enigma {
-    pub fn new(reflector_type: FixedReflectorType, rotor_name: &[RotorName; 3], rotor_position: &[usize; 3], rings_settings: &[usize; 3], plug_board_wiring: &HashMap<char, char>) -> Enigma {
+    pub fn new(reflector_type: FixedReflectorType, rotor_left: &RotorConfig, rotor_center: &RotorConfig, rotor_right: &RotorConfig, plug_board_wiring: &HashMap<char, char>) -> Enigma {
         Enigma {
-            left_rotor: Rotor::new(rotor_name[0], rotor_position[0], rings_settings[0]),
-            middle_rotor: Rotor::new(rotor_name[1], rotor_position[1], rings_settings[1]),
-            right_rotor: Rotor::new(rotor_name[2], rotor_position[2], rings_settings[2]),
+            left_rotor: Rotor::new(rotor_left.name, rotor_left.position, rotor_left.ring_setting),
+            middle_rotor: Rotor::new(rotor_center.name, rotor_center.position, rotor_center.ring_setting),
+            right_rotor: Rotor::new(rotor_right.name, rotor_right.position, rotor_right.ring_setting),
             reflector: Reflector::new(reflector_type),
             plug_board: PlugBoard::new(plug_board_wiring),
         }
