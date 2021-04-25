@@ -102,10 +102,10 @@ impl Rotor {
 
 fn reverse_wiring(forward: &Vec<char>) -> Vec<char> {
     let mut result: Vec<char> = Vec::with_capacity(forward.len());
-    result.resize(forward.len(), 'a');
+    result.resize(forward.len(), ' ');
     for i in 0..forward.len() {
         let c = forward[i];
-        result.insert(c as usize - 65, (i + 65) as u8 as char);
+        result[c as usize - 65] = (i + 65) as u8 as char;
     }
     result
 }

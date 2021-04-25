@@ -14,4 +14,5 @@ Greatly inspired from [https://github.com/mikepound/enigma](https://github.com/m
 
 ## Tips
 
-[To understand code structure](https://stackoverflow.com/questions/26946646/rust-package-with-both-a-library-and-a-binary)
+- [To understand code structure](https://stackoverflow.com/questions/26946646/rust-package-with-both-a-library-and-a-binary)
+- To check correctness : [GCHQ simulator](https://gchq.github.io/CyberChef/)
